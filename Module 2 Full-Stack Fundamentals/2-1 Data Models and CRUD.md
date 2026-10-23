@@ -56,7 +56,7 @@ Data Types
 | text | text/string | titles, post content, display names |
 | integer | whole number | vote counts |
 | boolean | true/false | task completion |
-| timestamptz | date and time | creation time
+| timestamptz | date and time | creation time |
 | uuid (or integer key) | unique identifier | identifyng records |
 
 If `posts.id` is an integer, the related `comments.postId` field should also be an integer. Similarly, if post Id's use uuids, the matching comment field should use uuids as well.
@@ -67,7 +67,7 @@ For our social feed app, the following data models can be used:
 
 | Field | Type | Notes |
 | :---- | :---- | :---- |
-| id | integer | Unique, Required. Will identify a record even when its title changes. |
+| id | integer | Unique, required |
 | title | text | Required |
 | content | text | The post body |
 | authorId | text | Links to the user |
@@ -79,7 +79,7 @@ For our social feed app, the following data models can be used:
 | Field | Type | Notes |
 | :---- | :---- | :---- |
 | id | integer | Unique, required |
-| postId | integer | Which post this belongs to |
+| postId | integer | Which post this comment belongs to |
 | content | text | The comment body |
 | authorId | text | Links to the user |
 | createdAt | timestamptz | Defaults to the current date and time |

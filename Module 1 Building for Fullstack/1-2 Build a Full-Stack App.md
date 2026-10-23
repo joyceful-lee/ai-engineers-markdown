@@ -2,7 +2,7 @@
 
 In today’s lesson, you will build a **TODO App** in your browser using Codex.
 
-You’ll Do the Following
+You’ll do the Following
 
 1. Open your project in Codex  
 2. Plan and send your prompt  
@@ -24,7 +24,7 @@ You're ready once Codex's chat screen mentions your project's name, such as "Wha
 
 ### Let’s think about it
 
-- [ ] Validate new project was created.
+- [ ] Check that a new project was created.
 
 ## 2. Plan and send your prompt
 
