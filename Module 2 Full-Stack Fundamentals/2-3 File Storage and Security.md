@@ -1,4 +1,4 @@
-# Storage Buckets and Security
+# File Storage and Security
 
 Our current app should let users:
 
@@ -8,51 +8,60 @@ Our current app should let users:
 
 Up next, we’ll be introducing **storage** and how images and other files can be connected to posts before finishing the app with a final security audit.
 
-1. Storage Buckets  
+1. Set up File Storage
 2. Add Image Uploads  
 3. Security Audit
 
-## 1. Storage Buckets
+## 1. Set up File Storage
 
 Our app will store two kinds of information: **post and comment details** and **image files**.
 
-We’re currently using **Neon Postgres** to store the information for each post, comment, and author; however, we’ll be using **Neon Object Storage** to store the uploaded images.
+We’re currently using **Neon Postgres** to store the information for each post, comment, and author (tables); however, we’ll be using **Vercel Blob** to store the uploaded images.
 
-You can view object storage by navigating from the `Neon Console > Object storage`.
+You can view storage by navigating from the `Vercel Dashboard > Storage`.
 
-Inside of object storage, we can create **buckets**. A bucket is a named container for files (similar to how a folder works). For our app, we’ll create a bucket called `post-images` to hold our images. In the bucket, each object will have an **object key** that will be used to identify which object should be used.
+Vercel Blob uses a **store** to hold files. Each uploaded file is called a **blob** and has a pathname that identifies it. For our app, we’ll create a private Blob store called `post-images`.
 
-In our post’s database row, the object key is used instead of the actual image or file.
+In our post’s database row, it should store the file reference, not the entire image.
 
-Use the following prompt to create a bucket:
+To manually create a blob, you can follow the steps below:
+
+1. Create the store from the Vercel project’s **Storage** tab.
+2. Choose **Create Database > Blob**, **Private**, and select the environments you will use.
+3. Make sure to check `Add a read-write token env var to this connection`
+
+The correlated Environment Variables will be added automatically.
 
 ```text  
-Configure Neon Object Storage for this app using the verified project and branch. Create or reuse a storage bucket called `post-images`.
+Configure private Vercel Blob storage for this app using a Blob store called `post-images`.
 
 Allow jpg, png, webp, gif. Max file size: 5MB.  
-Set permissions so only authenticated users can upload.
+Set permissions so only authenticated users can upload and only the owner can access, replace, or remove an image.
+Store image metadata and ownership in the verified Neon Postgres project.
 Handle upload or database failures without leaving broken references.
 ```
 
 ### Let’s think about it
 
-- [ ] Confirm the post-images bucket appears in Neon Object storage  
+- [ ] Confirm the post-images store appears in Vercel Blob  
 - [ ] Attempt an upload while signed out and confirm the backend rejects it.
 
 ## 2. Add Image Uploads
 
-Although Neon is now wired to accept images, our app does not have the capability to handle it yet. We need to ensure that users can optionally attach an image to a post and it will successfully add the image to the bucket and display it.
+Although Vercel is now wired to accept images, our app does not have the capability to handle it yet. We need to ensure that users can optionally attach an image to a post and it will successfully add the image to the store and display it.
 
 ```text  
 Add image upload to the post creation form in this social feed app.
 
 Requirements:  
 - Add a file input to the post form  
-- Upload the image to the Neon’s `post-images` bucket  
-- Add an option text column for the image refence to the existing `posts` table without deleting existing data.
-- Store the resulting object key on the post row as `imageId`  
+- Upload the image to the private Vercel Blob store named `post-images`
+- Add an optional text column for the image pathname to the existing `posts` table without deleting existing data.
+- Store the resulting Blob pathname on the post row as `imageId`  
+- Store the image owner and metadata in Neon Postgres, not the image binary.
 - Images are optional — submitting a post without an image should still work  
-- Only authenticated users may upload, and only the post author may replace or remove its attachment.
+- Only authenticated users may upload, and only the post author may view, replace, or remove its attachment.
+- Verify file type, file size, and ownership on the server.
 
 Keep the upload flow simple.  
 ```

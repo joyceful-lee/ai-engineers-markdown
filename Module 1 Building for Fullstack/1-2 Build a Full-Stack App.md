@@ -85,8 +85,10 @@ You can also navigate to your current working directory in command prompt or pow
 
 ```command
 cd \path\to\directory
-bun --bun run dev
+bun run dev
 ```
+
+Ctrl+Click the local host link to open up a preview of your site.
 
 Take a few minutes to explore the site and test all the features available. Make note of features that don’t work, layouts that need altering, and any other note that you want improved.
 
@@ -124,11 +126,12 @@ To publish our sites, we are using **Vercel**. Vercel is a platform that helps u
 In order to add images, follow the steps below:
 
 1. Open Vercel and click `Storage` in the left navbar
-2. Blick `Create Storage > Blob`
+2. Click `Create Storage > Blob`
    - If just for images, access can be public.
 3. Check the `Add a read-write token env var to this connection`
 4. Create the Blob.
+   - Double-check that `BLOB_READ_WRITE_TOKEN` is now an Environment Variable
 
-The required environment variables for the Blob will be automatically added.
+The required environment variables for the Blob should be automatically added.
 
 The project link can now be found in your GitHub repository in the `About` section or the `Domain` section of Vercel.
