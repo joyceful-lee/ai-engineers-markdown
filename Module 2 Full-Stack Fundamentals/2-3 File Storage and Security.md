@@ -18,7 +18,7 @@ Our app will store two kinds of information: **post and comment details** and **
 
 We’re currently using **Neon Postgres** to store the information for each post, comment, and author (tables); however, we’ll be using **Vercel Blob** to store the uploaded images.
 
-You can view storage by navigating from the `Vercel Dashboard > Storage`.
+Before creating a Blob store, deploy or connect your social feed project to Vercel. You can view storage by navigating from the `Vercel Dashboard > Storage`.
 
 Vercel Blob uses a **store** to hold files. Each uploaded file is called a **blob** and has a pathname that identifies it. For our app, we’ll create a private Blob store called `post-images`.
 
@@ -30,7 +30,7 @@ To manually create a blob, you can follow the steps below:
 2. Choose **Create Database > Blob**, **Private**, and select the environments you will use.
 3. Make sure to check `Add a read-write token env var to this connection`
 
-The correlated Environment Variables will be added automatically.
+The required Environment Variables will be added automatically.
 
 ```text  
 Configure private Vercel Blob storage for this app using a Blob store called `post-images`.
@@ -48,7 +48,7 @@ Handle upload or database failures without leaving broken references.
 
 ## 2. Add Image Uploads
 
-Although Vercel is now wired to accept images, our app does not have the capability to handle it yet. We need to ensure that users can optionally attach an image to a post and it will successfully add the image to the store and display it.
+Although Vercel Blob is now configured, our app does not have the capability to handle it yet. We need to ensure that users can optionally attach an image to a post and it will successfully add the image to the store and display it.
 
 ```text  
 Add image upload to the post creation form in this social feed app.

@@ -1,10 +1,10 @@
 # Data Models and CRUD
 
-In Module 1, we built a TODO app that saved data in a database. In this module, we’ll cover the concepts for those features by creating a Reddit-style social feed app. In Codex, create a new project called "Social Feed", so we can keep this project separate from our TODO app. Before creating tables, follow the Neon setup procedure from Module 1 in this workspace as well.
+In Module 1, we built a TODO app that saved data in a database. In this module, we’ll cover the concepts for those features by creating a Reddit-style social feed app. Create a separate Codex project called "Social Feed" so it stays separate from the TODO app. Reuse the existing Neon MCP connection, but use a separate Neon project or branch for the Social Feed database.
 
 To create the site, we’re going to start with the following steps:
 
-1. Create a Mockup
+1. Build a Mockup
 2. Define the Data Model  
 3. Understand CRUD  
 4. Wire Up Posts
@@ -57,9 +57,9 @@ Data Types
 | integer | whole number | vote counts |
 | boolean | true/false | task completion |
 | timestamptz | date and time | creation time |
-| uuid (or integer key) | unique identifier | identifyng records |
+| uuid (or integer key) | unique identifier | identifying records |
 
-If `posts.id` is an integer, the related `comments.postId` field should also be an integer. Similarly, if post Id's use uuids, the matching comment field should use uuids as well.
+If `posts.id` is an integer, the related `comments.postId` field should also be an integer. Similarly, if post IDs use UUIDs, the matching comment field should use UUIDs as well.
 
 For our social feed app, the following data models can be used:
 
@@ -84,7 +84,7 @@ For our social feed app, the following data models can be used:
 | authorId | text | Links to the user |
 | createdAt | timestamptz | Defaults to the current date and time |
 
-### Users
+### Profiles
 
 | Field | Type | Notes |
 | :---- | :---- | :---- |
@@ -100,9 +100,9 @@ Send this prompt in to create the tables in Neon:
 ```text
 Create the following tables in Neon:
 
-1. ‘Post’ table with fields: id, title, content, authorId, voteCount, createdAt  
-2. ‘Comment’ table with fields: id, postId, content, authorId, createdAt  
-3. ‘Profile’ table with fields: userId, displayName, bio, createdAt
+1. `posts` table with fields: id, title, content, authorId, voteCount, createdAt  
+2. `comments` table with fields: id, postId, content, authorId, createdAt  
+3. `profiles` table with fields: userId, displayName, bio, createdAt
 
 Use stable IDs, appropriate types, and relationships.  
 A post can have many comments with each comment identifying its post through the `postId`. Posts and comments link to the author through `authorId`.
@@ -135,7 +135,7 @@ For our app, the operations will follow:
 Now it’s time to connect the mockup’s hardcoded data with real records!
 
 ```text  
-Using the tables created (post, comment) and the existing mockup app, build [Next.js](http://Next.js) pages that:  
+Using the tables created (`posts`, `comments`, and `profiles`) and the existing mockup app, build [Next.js](http://Next.js) pages that:  
 - List all posts on the feed page (replace mock data with real Neon data)  
 - Show a single post with its comments on the detail page  
 - Let a user create a new post via a form  

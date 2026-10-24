@@ -7,6 +7,7 @@ You’ll do the Following
 1. Open your project in Codex  
 2. Plan and send your prompt  
 3. Test your site
+4. Deploy your site
 
 ## 1. Open your project in Codex
 
@@ -108,16 +109,16 @@ Afterwards, send the appropriate prompts into Codex to improve your site.
 
 - List three things you’ve improved upon in your website
 
-## 3. Deploy Your Site
+## 4. Deploy Your Site
 
 To publish our sites, we are using **Vercel**. Vercel is a platform that helps us host and deploy more advanced websites and applications.
 
 1. Push your project to GitHub
 2. Go to [Vercel](vercel.com/new)
-3. Sign in with GitHub and import your project using these setting:
+3. Sign in with GitHub and import your project using these settings:
    - Framework: Next.js
    - Production branch: main
-   - Root directoy: .
+   - Root directory: .
 4. Add the following Environment Variable for all environments (Production, Preview, Development) or use Neon integration:
    - DATABASE_URL: `Neon > Connect > Postgres database > Connection String`
    - NEON_AUTH_BASE_URL: `Neon > Connect > Auth > Auth URL`
@@ -127,7 +128,7 @@ In order to add images, follow the steps below:
 
 1. Open Vercel and click `Storage` in the left navbar
 2. Click `Create Storage > Blob`
-   - If just for images, access can be public.
+   - Check `Private`.
 3. Check the `Add a read-write token env var to this connection`
 4. Create the Blob.
    - Double-check that `BLOB_READ_WRITE_TOKEN` is now an Environment Variable
