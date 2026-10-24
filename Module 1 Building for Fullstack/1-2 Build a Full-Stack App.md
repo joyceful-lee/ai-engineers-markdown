@@ -98,3 +98,30 @@ Afterwards, send the appropriate prompts into Codex to improve your site.
 ### Let’s think about it
 
 - List three things you’ve improved upon in your website
+
+## 3. Deploy Your Site
+
+To publish our sites, we are using **Vercel**. Vercel is a platform that helps us host and deploy more advanced websites and applications.
+
+1. Push your project to GitHub
+2. Go to [Vercel](vercel.com/new)
+3. Sign in with GitHub and import your project using these setting:
+   - Framework: Next.js
+   - Production branch: main
+   - Root directoy: .
+4. Add the following Environment Variable for all environments (Production, Preview, Development) or use Neon integration:
+   - DATABASE_URL: `Neon > Connect > Postgres database > Connection String`
+   - NEON_AUTH_BASE_URL: `Neon > Connect > Auth > Auth URL`
+5. Click Deploy
+
+In order to add images, follow the steps below:
+
+1. Open Vercel and click `Storage` in the left navbar
+2. Blick `Create Storage > Blob`
+   - If just for images, access can be public.
+3. Check the `Add a read-write token env var to this connection`
+4. Create the Blob.
+
+The required environment variables for the Blob will be automatically added.
+
+The project link can now be found in your GitHub repository in the `About` section or the `Domain` section of Vercel.
