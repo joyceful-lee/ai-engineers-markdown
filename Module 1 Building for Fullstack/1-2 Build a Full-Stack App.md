@@ -81,6 +81,13 @@ Do not create a duplicate Neon project.
 
 After Codex finishes generating your site, it should either open it to the side or provide a link where you can see it.
 
+You can also navigate to your current working directory in command prompt or powershell using:
+
+```command
+cd \path\to\directory
+bun --bun run dev
+```
+
 Take a few minutes to explore the site and test all the features available. Make note of features that don’t work, layouts that need altering, and any other note that you want improved.
 
 A solid way to test is to follow the sequence to add a task:
