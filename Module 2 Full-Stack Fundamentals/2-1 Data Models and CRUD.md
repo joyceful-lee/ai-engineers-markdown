@@ -1,19 +1,21 @@
 # Data Models and CRUD
 
-In Module 1, we built a TODO app that saved data in a database. In this module, we’ll cover the concepts for those features by creating a Reddit-style social feed app. Create a separate Codex project called "Social Feed" so it stays separate from the TODO app. Reuse the existing Neon MCP connection, but use a separate Neon project or branch for the Social Feed database.
+In Module 1, we built a TODO app that saved data in a database. In this module, we’ll cover the concepts for those features by creating a Reddit-style social feed app.
+
+Create a separate Codex project called **Social Feed**, so our work stays separate from the TODO app. You can reuse the existing Neon MCP connection, but use a separate Neon project for the Social Feed database.
 
 To create the site, we’re going to start with the following steps:
 
 1. Build a Mockup
 2. Define the Data Model  
 3. Understand CRUD  
-4. Wire Up Posts
+4. Connect to Neon
 
 ## 1. Build a Mockup
 
-A **mockup** is a static visual representation of an application’s intended look and feel (e.g., layout, colors, typography, button styles, etc.). Once navigation or page interactions are added, it becomes an **interactive prototype**.
+A **mockup** shows what the app should look like before we add any data. It can include the layout, colors, typography, button styles, and more! Once working navigation or page interactions are added, it becomes an **interactive prototype**.
 
-By starting with a mockup or interactive prototype, it helps us see how the app will look and how our users may navigate it before connecting it to a database or building the backend. We can fix confusing layouts, test navigation, and make adjustments while the app is still easy to change!
+By starting with a mockup or interactive prototype, it helps us see how the app will look and how our users may interact with it before connecting it to a database or building the backend. We can fix confusing layouts, test navigation, and make adjustments while the app is still easy to change!
 
 For our social feed app, we want to generate a stripped-back static version of the site with hardcoded posts and comments.
 
@@ -30,10 +32,7 @@ No backend, no database — use hardcoded mock data. Tailwind CSS for styling.
 Keep it clean and minimal. No auth, no forms that actually submit.
 ```
 
-### Tips
-
-* Walk through every page before moving on — note what the feed, post detail, and sidebar should look like when data is real.  
-* Keep field names from the mockup in mind; the next section defines the official data models.
+Walk through each page before moving on.Note what the feed, post detail, and sidebar should look like when data is real.
 
 ### Let's think about it
 
@@ -41,7 +40,7 @@ Keep it clean and minimal. No auth, no forms that actually submit.
 
 ## 2. Define the Data Model
 
-A **data model** describes what information an application stores, how it is organized, and how different records relate to one another. You can think of it as a blueprint for your app’s data!
+A **data model** is the plan for the information an app stores and how records (database) connect to one another. You can think of it as a blueprint for your app’s data!
 
 In Neon, a **table** groups similar records.
 
@@ -49,7 +48,7 @@ In Neon, a **table** groups similar records.
 * Each **column** is a field  
   * A field’s **data type** defines what kind of value a field can store
 
-Data Types
+### Data Types
 
 | PostgreSQL | Meaning | Used for |
 | :--- | :--- | :--- |
@@ -93,7 +92,7 @@ For our social feed app, the following data models can be used:
 | bio | text | Optional |
 | createdAt | timestamptz | Defaults to the current date and time |
 
-A post can have many comments with each comment identifying its post through the `postId`. Posts and comments link to the author through `authorId`.
+A post can have many comments. Each comment uses `postId` to identify its post. Posts and comments link to the author through `authorId`.
 
 Send this prompt in to create the tables in Neon:
 
@@ -104,7 +103,7 @@ Create the following tables in Neon:
 2. `comments` table with fields: id, postId, content, authorId, createdAt  
 3. `profiles` table with fields: userId, displayName, bio, createdAt
 
-Use stable IDs, appropriate types, and relationships.  
+Use stable IDs, appropriate PostgreSQL types, and relationships.  
 A post can have many comments with each comment identifying its post through the `postId`. Posts and comments link to the author through `authorId`.
 ```
 
@@ -115,7 +114,7 @@ A post can have many comments with each comment identifying its post through the
 
 ## 3. Understand CRUD
 
-**CRUD** stands for Create, Read, Update, and Delete.
+**CRUD** stands for Create, Read, Update, and Delete. These are the four basic operations an app can do with stored data.
 
 For our app, the operations will follow:
 
@@ -128,9 +127,9 @@ For our app, the operations will follow:
 
 ### Let's think about it
 
-* “Changing the title of a post” falls under which one of the operations?
+* Which CRUD operation is changing the title of a post?
 
-## 4. Wire Up Posts
+## 4. Connect to Neon
 
 Now it’s time to connect the mockup’s hardcoded data with real records!
 
@@ -148,10 +147,7 @@ Use it only during local development. Replace the fixture identity
 when real authentication is added 
 ```
 
-### Tips
-
-* After creating a post, open the Neon console and confirm the row exists before trusting the UI.  
-* If the feed is empty, check table names, selected database connections, and access policies.
+After creating a post, open Neon console and confirm the row exists before trusting the UI. If the feed is empty, check table names, selected database connections, and access policies.
 
 ### Let's think about it
 

@@ -1,12 +1,14 @@
 # File Storage and Security
 
-Our current app should let users:
+Your current Social Feed app should let users:
 
 1. Create accounts  
 2. Write posts  
 3. Leave comments
 
 Up next, we’ll be introducing **storage** and how images and other files can be connected to posts before finishing the app with a final security audit.
+
+You will:
 
 1. Set up File Storage
 2. Add Image Uploads  
@@ -19,6 +21,16 @@ Our app will store two kinds of information: **post and comment details** and **
 We’re currently using **Neon Postgres** to store the information for each post, comment, and author (tables); however, we’ll be using **Vercel Blob** to store the uploaded images.
 
 Before creating a Blob store, deploy or connect your social feed project to Vercel. You can view storage by navigating from the `Vercel Dashboard > Storage`.
+
+```prompt
+Deploy this project to Vercel under the name, [desired name], using Neon for the database and authentication (Neon Better Auth using email/password).
+
+Inspect the app first, then create or connect the GitHub repository, Neon project, and Vercel project. Configure the database connection, apply the required schema migrations, and store credentials securely in Vercel environment variables. Keep secrets out of Git.
+
+Run the build and relevant tests, deploy to production, and verify that the live app can read and write to Neon. Set up automatic deployments from GitHub.
+
+Complete routine setup without asking for confirmation. Ask before deleting data, overwriting existing resources, or enabling paid services. Finish with the live URL, repository link, and any remaining setup.
+```
 
 Vercel Blob uses a **store** to hold files. Each uploaded file is called a **blob** and has a pathname that identifies it. For our app, we’ll create a private Blob store called `post-images`.
 

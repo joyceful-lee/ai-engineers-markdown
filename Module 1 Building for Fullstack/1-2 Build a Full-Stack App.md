@@ -116,7 +116,31 @@ Afterwards, send the appropriate prompts into Codex to improve your site.
 
 To publish our sites, we are using **Vercel**. Vercel is a platform that helps us host and deploy (publish) more advanced websites and applications through using our repositories on GitHub.
 
-1. Push your project to GitHub
+The first step is to push your project to GitHub in a new repository. If the project isn't uploaded to GitHub yet, you can use the prompt below.
+
+```prompt
+Push the current project to a new public GitHub repository with the same name under my account.
+
+Inspect the folder and existing Git setup first. Add an appropriate .gitignore so secrets, environment files, dependencies, and build outputs stay out of Git. Commit the project, create the repository, and push it with main as the default branch.
+
+Preserve existing files and Git history. Complete routine steps without asking for confirmation, and finish with the repository link.
+```
+
+After the GitHub repository is created, you can connect it to Vercel!
+
+```prompt
+Deploy this project to Vercel under the same name, using Neon for the database and authentication (email/password).
+
+Inspect the app first, then create or connect the GitHub repository, Neon project, and Vercel project. Configure the database connection, apply the required schema migrations, and store credentials securely in Vercel environment variables. Keep secrets out of Git.
+
+Run the build and relevant tests, deploy to production, and verify that the live app can read and write to Neon. Set up automatic deployments from GitHub.
+
+Complete routine setup without asking for confirmation. Ask before deleting data, overwriting existing resources, or enabling paid services. Finish with the live URL, repository link, and any remaining setup.
+```
+
+You can also do it manually by following the steps below:
+
+1. Confirm your project is on GitHub
 2. Go to [Vercel](vercel.com/new)
 3. Sign in with GitHub and import your project using these settings:
    - Framework: `Next.js`
@@ -129,7 +153,17 @@ To publish our sites, we are using **Vercel**. Vercel is a platform that helps u
 
 ### Add image storage
 
-If your app supports images, follow the steps below:
+If your app supports images, send the prompt or follow the steps below:
+
+```prompt
+Create a Vercel Blob store named [store name] and connect it to my current project linked to Vercel.
+
+Use private access. Configure the required credentials securely for local development and Vercel deployments, keeping secrets out of Git. Verify the connection with a small test upload, then report the store name and any remaining setup.
+
+Preserve existing resources and ask before enabling paid services.
+```
+
+Manual Steps:
 
 1. Open the Vercel dashboard and click `Storage` in the left navbar.
 2. Click `Create Storage > Blob`.
