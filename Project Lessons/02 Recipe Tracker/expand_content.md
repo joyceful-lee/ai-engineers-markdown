@@ -29,7 +29,7 @@ Maya searches for recipes using mushrooms. The site shows recommendations from i
 
 Connect an external recipe API to help users discover more meals without losing access to the site's own recipes and recommendations.
 
-For our sample project, we used ![TheMealDB](https://www.themealdb.com/api.php), but other free APIs can be found ![here](https://github.com/public-apis/public-apis#food--drink).
+For our sample project, we used [TheMealDB](https://www.themealdb.com/api.php), but other free APIs can be found [here](https://github.com/public-apis/public-apis#food--drink).
 
 ```checklist
 {
