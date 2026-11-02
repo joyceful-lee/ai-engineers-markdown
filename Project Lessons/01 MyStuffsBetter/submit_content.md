@@ -21,6 +21,7 @@ color: #e7f7dc
 - Does guest progress survive a page refresh, with its limitations clearly explained?
 - Does signing in preserve the guest's work and return them to what they were doing?
 ```
+
 ```checkbox
 {
 title: Frequent Design Mistakes

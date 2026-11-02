@@ -18,4 +18,4 @@ color: #fff8bf
 - Apply the **user-generated content** and **content marketplace** concepts to create a collection site people want to follow.
 ```
 
-By the end of this project, you will have made a working digital binder collection. **Let's get started!**
+By the end of this project, you'll have made a working digital binder collection. **Let's get started!**
