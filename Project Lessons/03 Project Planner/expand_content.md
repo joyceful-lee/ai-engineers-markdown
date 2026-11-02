@@ -21,9 +21,11 @@ face: 📬
 Sometimes when I have a question about a task, the answer could help the whole team. I wish we had a shared space to talk about it.
 ```
 
+That is a change we can make.
+
 ## Chat Systems
 
-A **chat system** stores messages with their sender, time, and group or project. New messages should appear automatically without a manual refresh.
+A **chat system** allows users to send messages to each other and stores messages with their sender, time, and group or project. New messages should appear automatically without a manual refresh.
 
 Chat permissions matter just as much as task permissions too. A user outside the team should not be able to read or post in a team chat and a private message should be only visible to the sender and receiver. Project leads could also manage participation by muting members or removing them from a room.
 

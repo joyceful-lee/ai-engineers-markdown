@@ -8,7 +8,7 @@ name: Noah
 bubble: speech
 face: 🗺️
 }
-I love level-based games that show my progress cleary so I can see how far I've come.
+I love level-based games because I like seeing my progress.
 ```
 
 We can make a level-based educational adventure where players complete challenges to unlock new locations! Each solved challenge should open a path to a new location, helping Noah see his progression through the site.

@@ -11,7 +11,7 @@ face: 🗺️
 Getting an answer right doesn’t feel satisfying when all that happens is moving on to the next question.
 ```
 
-In the second half of the project, we'll introduce completionism and trading so players can work toward a complete collection and exchange rewards with one another.
+Great point. We can add a feature where players can work to complete a collection and exchange rewards with one another.
 
 ## Completionism and Trading
 
