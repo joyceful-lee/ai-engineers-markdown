@@ -13,13 +13,15 @@ The intended UX is as follows:
 To upload a new card, the user should:
 {Question 4 from Plan It}
 
-To browse public binders, the user should:
+To share a binder, the user should:
 {Question 5 from Plan It}
+
+To browse public binders, the user should:
+{Question 6 from Plan It}
 
 Use the Neon for authentication and database storage. Enforce ownership and collection visibility in trusted server-side code.
 Store uploaded images in Vercel Blob and their references in Neon.
 Keep the project in GitHub and configure Vercel deployment and environment variables.
-Validate uploads and form entries, and ask for confirmation before deleting a binder or card.
 Never expose passwords or secret API keys in browser code or GitHub.
 ```
 
